@@ -1,3 +1,4 @@
+/*
 package com.example.waterremindershwe
 
 import android.app.Application
@@ -14,4 +15,4 @@ class WaterApplication:Application() {
 
     private val waterLocalSource by lazy { WaterLocalSource(dataBase.waterDao()) }
     val waterRepository by lazy { WaterRepository(waterLocalSource) }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package com.example.waterremindershwe.database
 
 import android.content.Context
@@ -10,9 +11,9 @@ import com.example.waterremindershwe.data.WaterDb
 import kotlinx.coroutines.CoroutineScope
 
 @Database(entities = [WaterDb::class], exportSchema = true, version = 1)
-abstract class WaterDatabase:RoomDatabase(), WaterDao {
+public abstract class WaterDatabase:RoomDatabase(), WaterDao {
 
-    abstract fun waterDao(): WaterDao
+    public abstract fun waterDao(): WaterDao
 
     companion object {
         @Volatile
@@ -34,4 +35,4 @@ abstract class WaterDatabase:RoomDatabase(), WaterDao {
         }
     }
 
-}
+}*/

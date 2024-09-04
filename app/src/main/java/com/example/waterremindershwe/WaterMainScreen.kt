@@ -12,6 +12,11 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -22,28 +27,35 @@ import androidx.lifecycle.ViewModel
 import com.example.waterremindershwe.viewmodel.WaterViewModel
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier,
-               waterViewModel: WaterViewModel) {
+fun MainScreen(
+    modifier: Modifier = Modifier,
+) {
 
-    Column (
+    Column(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         CustomPorgressIndicator()
         WaterAmountChoicer()
     }
 }
 
 @Composable
-fun CustomPorgressIndicator(modifier: Modifier = Modifier,) {
+fun CustomPorgressIndicator(
+    modifier: Modifier = Modifier,
+) {
 
-    Box(modifier = Modifier
-        .fillMaxWidth(),
+    val waterViewModel:WaterViewModel = remember { WaterViewModel() }
+    var waterAmount = waterViewModel.waterAmount.observeAsState("")
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth(),
         contentAlignment = Alignment.Center
-        ){
+    ) {
 
         Column(
             modifier = Modifier
@@ -52,14 +64,18 @@ fun CustomPorgressIndicator(modifier: Modifier = Modifier,) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
 
-        ){
-            Text(text = "Target Drink",
+        ) {
+            Text(
+                text = "Target Drink",
                 fontSize = 64.sp,
                 modifier = Modifier
-                    .padding(bottom = 30.dp))
-            Text(text = "1000 / 2500 ml",
+                    .padding(bottom = 30.dp)
+            )
+            Text(
+                text = waterAmount.value.toString() ?: "",
                 fontSize = 32.sp,
-                textAlign = TextAlign.Center)
+                textAlign = TextAlign.Center
+            )
         }
 
     }
@@ -93,7 +109,12 @@ fun CustomPorgressIndicator(modifier: Modifier = Modifier,) {
 }
 
 @Composable
-fun WaterAmountChoicer(modifier: Modifier = Modifier) {
+fun WaterAmountChoicer(
+    modifier: Modifier = Modifier,
+) {
+
+    val waterViewModel:WaterViewModel = remember { WaterViewModel() }
+
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
@@ -103,81 +124,107 @@ fun WaterAmountChoicer(modifier: Modifier = Modifier) {
     ) {
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = {
+                    waterViewModel.setText("1")
+                },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = {
+                    //waterAmount = 2
+                },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = {
+                    //waterAmount = 3
+                },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
 
         //
-        item{
-            TextButton(onClick = { /*TODO*/ },
-                modifier = Modifier.padding(8.dp)) {
+        item {
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Text(text = "1")
             }
         }
@@ -201,7 +248,7 @@ fun WaterAmountChoicer(modifier: Modifier = Modifier) {
             )*//*
         }
     }*/
-    
+
 }
 
 

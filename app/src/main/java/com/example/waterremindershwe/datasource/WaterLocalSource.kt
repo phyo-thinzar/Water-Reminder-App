@@ -1,3 +1,4 @@
+/*
 package com.example.waterremindershwe.datasource
 
 import com.example.waterremindershwe.dao.WaterDao
@@ -6,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 class WaterLocalSource(private val waterDao: WaterDao) {
 
-    fun getAllData():Flow<List<WaterDb>>{
+    fun getAllData():List<WaterDb>{
         return waterDao.getAll()
     }
 
@@ -16,4 +17,4 @@ class WaterLocalSource(private val waterDao: WaterDao) {
 
     //update water amount
 
-}
+}*/
