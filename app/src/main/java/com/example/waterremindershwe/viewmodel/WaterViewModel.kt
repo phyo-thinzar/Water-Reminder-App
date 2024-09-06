@@ -15,16 +15,18 @@ class WaterViewModel/*(private val repository: WaterRepository)*/ : ViewModel() 
     }*/
 
     ///Test Coding
-    private val _waterAmount = MutableLiveData<String>()
-    val waterAmount: LiveData<String> get() = _waterAmount
+    private val _waterAmount = MutableLiveData<Int>()
+    val waterAmount: LiveData<Int> get() = _waterAmount
 
-    fun setText(newText: String) {
-        _waterAmount.value = newText
+    init{
+        _waterAmount.value = 0
     }
+    fun setNewAmount(newWaterAmount: Int) {
+        val currentValue = _waterAmount.value ?: 0
+        _waterAmount.value = currentValue + newWaterAmount
+    }
+
 
 }
 
-/*
-data class fakeData(
-    val waterAmount : Int,
-)*/
+
