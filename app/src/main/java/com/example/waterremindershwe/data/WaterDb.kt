@@ -1,4 +1,3 @@
-/*
 package com.example.waterremindershwe.data
 
 import android.icu.text.CaseMap.Title
@@ -14,4 +13,3 @@ data class WaterDb(
     @ColumnInfo(name = "water_amount") val waterAmount: Int,
    // @ColumnInfo(name = "date") val date: LocalDate,
 )
-*/

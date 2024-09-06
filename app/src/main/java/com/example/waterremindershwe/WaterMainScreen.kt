@@ -49,15 +49,16 @@ fun MainScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ) {
+                val waterAmount = waterAmount.value.toString() ?: ""
                 Text(
                     text = "Target Drink",
-                    fontSize = 64.sp,
+                    fontSize = 54.sp,
                     modifier = Modifier
                         .padding(bottom = 30.dp)
                 )
                 Text(
 
-                    text = waterAmount.value.toString() ?: "" + " ml / 3000 ml",
+                    text = "$waterAmount ml / 2200 ml" ,
                     fontSize = 32.sp,
                     textAlign = TextAlign.Center
                 )

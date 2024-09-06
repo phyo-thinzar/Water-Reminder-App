@@ -1,10 +1,10 @@
-/*
 package com.example.waterremindershwe.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.waterremindershwe.data.WaterDb
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WaterDao{
@@ -15,7 +15,7 @@ interface WaterDao{
 
     //get all user information
     @Query("SELECT * FROM water_db")
-    fun getAll() : List<WaterDb>
+    fun getAll() : Flow<List<WaterDb>>
 
     //update water amount
-}*/
+}
