@@ -2,21 +2,21 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c57c1c2d6deb4e6aedd9602a34bcc7b0",
+    "identityHash": "f0102ed20215b4fda56f241056b8b776",
     "entities": [
       {
-        "tableName": "water_db",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `water_amount` INTEGER NOT NULL)",
+        "tableName": "water_data",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `waterAmount` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "waterAmount",
-            "columnName": "water_amount",
+            "columnName": "waterAmount",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -34,7 +34,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c57c1c2d6deb4e6aedd9602a34bcc7b0')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f0102ed20215b4fda56f241056b8b776')"
     ]
   }
 }

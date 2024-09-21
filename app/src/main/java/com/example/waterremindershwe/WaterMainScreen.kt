@@ -1,5 +1,6 @@
 package com.example.waterremindershwe
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,11 +9,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -23,6 +27,7 @@ import com.example.waterremindershwe.viewmodel.WaterViewModel
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
+    waterViewModel: WaterViewModel = hiltViewModel()
 ) {
 
     Column(
@@ -32,8 +37,15 @@ fun MainScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val waterViewModel:WaterViewModel = remember { WaterViewModel() }
-        var waterAmount = waterViewModel.waterAmount.observeAsState(0)
+        /*val context = LocalContext.current
+        val waterDao = WaterDatabase.getDatabase(context).waterDao()
+        val waterSource = WaterLocalSource(waterDao)
+        val waterRepository = WaterRepository(waterSource)
+        val waterViewModel:WaterViewModel = remember { WaterViewModel(waterRepository) }
+*/
+
+        var waterAmount by remember { mutableStateOf(0) }
+        var waterId by remember { mutableStateOf(0) }
 
         Box(
             modifier = Modifier
@@ -49,19 +61,22 @@ fun MainScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ) {
-                val waterAmount = waterAmount.value.toString() ?: ""
                 Text(
                     text = "Target Drink",
                     fontSize = 54.sp,
                     modifier = Modifier
                         .padding(bottom = 30.dp)
+
                 )
+                Log.d("Pass","Taget Drink")
                 Text(
 
                     text = "$waterAmount ml / 2200 ml" ,
                     fontSize = 32.sp,
                     textAlign = TextAlign.Center
+
                 )
+                Log.d("Pass","Water Amount : ${waterAmount}")
             }
 
         }
@@ -77,7 +92,13 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterViewModel.setNewAmount(100)
+                        waterAmount += 100
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
+
                     },
                     modifier = Modifier.padding(8.dp)
                 ) {
@@ -89,18 +110,31 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterViewModel.setNewAmount(200)
+                        waterAmount += 200
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                           // waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
                     },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "200 ml")
+
                 }
             }
 
             //
             item {
                 TextButton(
-                    onClick = { waterViewModel.setNewAmount(300) },
+                    onClick = {
+                        waterAmount += 300
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                           //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
+                              },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "300 ml")
@@ -110,7 +144,14 @@ fun MainScreen(
             //
             item {
                 TextButton(
-                    onClick = { waterViewModel.setNewAmount(400) },
+                    onClick = {
+                        waterAmount += 400
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
+                              },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "400 ml")
@@ -120,7 +161,14 @@ fun MainScreen(
             //
             item {
                 TextButton(
-                    onClick = { waterViewModel.setNewAmount(500) },
+                    onClick = {
+                        waterAmount += 500
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
+                              },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "500 ml")
@@ -130,7 +178,14 @@ fun MainScreen(
             //
             item {
                 TextButton(
-                    onClick = { waterViewModel.setNewAmount(600) },
+                    onClick = {
+                        waterAmount += 600
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
+                              },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "600 ml")
@@ -140,7 +195,14 @@ fun MainScreen(
             //
             item {
                 TextButton(
-                    onClick = { waterViewModel.setNewAmount(700) },
+                    onClick = {
+                        waterAmount += 700
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                           // waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
+                              },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "700 ml")
@@ -150,7 +212,12 @@ fun MainScreen(
             //
             item {
                 TextButton(
-                    onClick = { waterViewModel.setNewAmount(800) },
+                    onClick = { waterAmount += 800
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        } },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "800 ml")
@@ -160,12 +227,26 @@ fun MainScreen(
             //
             item {
                 TextButton(
-                    onClick = { waterViewModel.setNewAmount(900) },
+                    onClick = {
+                        waterAmount += 900
+                        if(waterAmount == 0){
+                            waterViewModel.insert(waterAmount)
+                        }else{
+                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                        }
+                              },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "900 ml")
                 }
             }
+        }
+
+        //show Resultbutton
+        Button(onClick = {
+            waterViewModel.showResult()
+        }) {
+            Text(text = "Show Result")
         }
     }
 }
