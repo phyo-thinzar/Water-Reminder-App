@@ -22,12 +22,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.waterremindershwe.viewmodel.WaterViewModel
 
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    waterViewModel: WaterViewModel = hiltViewModel()
+    viewModel: WaterViewModel = hiltViewModel()
 ) {
 
     Column(
@@ -94,7 +95,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 100
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -112,7 +113,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 200
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                            // waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -130,7 +131,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 300
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -147,7 +148,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 400
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -164,7 +165,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 500
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -181,7 +182,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 600
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -198,7 +199,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 700
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                            // waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -214,7 +215,7 @@ fun MainScreen(
                 TextButton(
                     onClick = { waterAmount += 800
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
                         } },
@@ -230,7 +231,7 @@ fun MainScreen(
                     onClick = {
                         waterAmount += 900
                         if(waterAmount == 0){
-                            waterViewModel.insert(waterAmount)
+                            viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
                         }
@@ -244,7 +245,7 @@ fun MainScreen(
 
         //show Resultbutton
         Button(onClick = {
-            waterViewModel.showResult()
+            viewModel.showResult()
         }) {
             Text(text = "Show Result")
         }

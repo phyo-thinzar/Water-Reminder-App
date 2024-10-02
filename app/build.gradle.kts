@@ -110,7 +110,23 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     // Hilt
-    implementation( "com.google.dagger:hilt-android:2.40.5")
-    kapt ("com.google.dagger:hilt-android-compiler:2.40.5")
+    /*implementation( "com.google.dagger:hilt-android:2.40.5")
+    kapt ("com.google.dagger:hilt-android-compiler:2.40.5")*/
+
+    // Hilt for Android
+    implementation ("com.google.dagger:hilt-android:2.48")
+    kapt ("com.google.dagger:hilt-compiler:2.48")
+
+    // Hilt and Jetpack Compose integration
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    // Compose
+    implementation ("androidx.compose.ui:ui:1.5.0")
+    implementation ("androidx.compose.material:material:1.5.0")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.5.0")
+
+    // ViewModel and LiveData
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
+
 
 }
