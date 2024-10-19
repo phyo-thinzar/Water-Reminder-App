@@ -3,6 +3,7 @@ package com.example.waterremindershwe.repository
 import com.example.waterremindershwe.data.WaterData
 import com.example.waterremindershwe.datasource.WaterLocalSource
 import kotlinx.coroutines.flow.Flow
+import java.time.LocalDate
 import javax.inject.Inject
 
 class WaterRepository @Inject constructor(private val waterSource : WaterLocalSource) {
@@ -16,8 +17,8 @@ class WaterRepository @Inject constructor(private val waterSource : WaterLocalSo
         return waterSource.getAllData()
     }
 
-    /*suspend fun updateWaterAmount(date : LocalDate, waterAmount: Int){
-        waterSource.updateWaterAmount(date = date, newAmount = waterAmount)
-    }*/
+    suspend fun updateWaterAmount(waterAmount: Int, id : Int){
+        waterSource.updateWaterAmount(newAmount = waterAmount , id = id)
+    }
 
 }

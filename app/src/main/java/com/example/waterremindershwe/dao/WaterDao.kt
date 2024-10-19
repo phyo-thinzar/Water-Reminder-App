@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.example.waterremindershwe.data.WaterData
 import kotlinx.coroutines.flow.Flow
+import java.time.LocalDate
 
 @Dao
 interface WaterDao{
@@ -18,6 +19,6 @@ interface WaterDao{
     fun getAll() : Flow<List<WaterData>>
 
     //update water amount
-    /*@Query("UPDATE water_db SET waterAmount = :newWaterAmount WHERE date = :currentDate")
-    suspend fun updaterWaterAmount(currentDate : LocalDate, newWaterAmount : Int)*/
+    @Query("UPDATE water_data SET waterAmount = :newWaterAmount WHERE id = :id")
+    suspend fun updateWaterAmount(newWaterAmount : Int,id : Int)
 }

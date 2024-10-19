@@ -128,5 +128,8 @@ dependencies {
     // ViewModel and LiveData
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
 
+    //
+    implementation ("com.github.bumptech.glide:glide:4.13.0")
+    kapt ("com.github.bumptech.glide:compiler:4.13.0")
 
 }

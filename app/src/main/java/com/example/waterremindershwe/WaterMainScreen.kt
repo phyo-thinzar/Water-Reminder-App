@@ -1,6 +1,8 @@
 package com.example.waterremindershwe
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,7 +26,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.waterremindershwe.viewmodel.WaterViewModel
+import java.time.LocalDate
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
@@ -93,11 +97,14 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 100
+
                         if(waterAmount == 0){
+
+                            waterAmount += 100
                             viewModel.insert(waterAmount)
                         }else{
-                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 100
+                            viewModel.updateWaterAmount(waterAmount,waterId)
                         }
 
                     },
@@ -111,8 +118,9 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 200
+
                         if(waterAmount == 0){
+                            waterAmount += 200
                             viewModel.insert(waterAmount)
                         }else{
                            // waterViewModel.updateWaterAmount(waterId,waterAmount)
@@ -129,8 +137,9 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 300
+
                         if(waterAmount == 0){
+                            waterAmount += 300
                             viewModel.insert(waterAmount)
                         }else{
                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
@@ -146,8 +155,9 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 400
+
                         if(waterAmount == 0){
+                            waterAmount += 400
                             viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
@@ -163,8 +173,9 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 500
+
                         if(waterAmount == 0){
+                            waterAmount += 500
                             viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
@@ -180,8 +191,9 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 600
+
                         if(waterAmount == 0){
+                            waterAmount += 600
                             viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
@@ -197,8 +209,9 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 700
+
                         if(waterAmount == 0){
+                            waterAmount += 700
                             viewModel.insert(waterAmount)
                         }else{
                            // waterViewModel.updateWaterAmount(waterId,waterAmount)
@@ -213,8 +226,9 @@ fun MainScreen(
             //
             item {
                 TextButton(
-                    onClick = { waterAmount += 800
+                    onClick = {
                         if(waterAmount == 0){
+                            waterAmount += 800
                             viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
@@ -229,8 +243,9 @@ fun MainScreen(
             item {
                 TextButton(
                     onClick = {
-                        waterAmount += 900
+
                         if(waterAmount == 0){
+                            waterAmount += 900
                             viewModel.insert(waterAmount)
                         }else{
                             //waterViewModel.updateWaterAmount(waterId,waterAmount)
