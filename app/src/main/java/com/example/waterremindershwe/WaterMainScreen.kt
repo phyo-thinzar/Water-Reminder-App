@@ -15,6 +15,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -50,7 +51,7 @@ fun MainScreen(
 */
 
         var waterAmount by remember { mutableStateOf(0) }
-        var waterId by remember { mutableStateOf(0) }
+        val length = viewModel.lengthCount.collectAsState(initial = 0)
 
         Box(
             modifier = Modifier
@@ -104,7 +105,7 @@ fun MainScreen(
                             viewModel.insert(waterAmount)
                         }else{
                             waterAmount += 100
-                            viewModel.updateWaterAmount(waterAmount,waterId)
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
 
                     },
@@ -123,7 +124,8 @@ fun MainScreen(
                             waterAmount += 200
                             viewModel.insert(waterAmount)
                         }else{
-                           // waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 200
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
                     },
                     modifier = Modifier.padding(8.dp)
@@ -142,7 +144,8 @@ fun MainScreen(
                             waterAmount += 300
                             viewModel.insert(waterAmount)
                         }else{
-                           //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 300
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
                               },
                     modifier = Modifier.padding(8.dp)
@@ -160,7 +163,8 @@ fun MainScreen(
                             waterAmount += 400
                             viewModel.insert(waterAmount)
                         }else{
-                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 400
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
                               },
                     modifier = Modifier.padding(8.dp)
@@ -178,7 +182,8 @@ fun MainScreen(
                             waterAmount += 500
                             viewModel.insert(waterAmount)
                         }else{
-                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 500
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
                               },
                     modifier = Modifier.padding(8.dp)
@@ -196,7 +201,8 @@ fun MainScreen(
                             waterAmount += 600
                             viewModel.insert(waterAmount)
                         }else{
-                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 600
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
                               },
                     modifier = Modifier.padding(8.dp)
@@ -214,7 +220,8 @@ fun MainScreen(
                             waterAmount += 700
                             viewModel.insert(waterAmount)
                         }else{
-                           // waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 700
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
                               },
                     modifier = Modifier.padding(8.dp)
@@ -231,7 +238,8 @@ fun MainScreen(
                             waterAmount += 800
                             viewModel.insert(waterAmount)
                         }else{
-                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 800
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         } },
                     modifier = Modifier.padding(8.dp)
                 ) {
@@ -248,7 +256,8 @@ fun MainScreen(
                             waterAmount += 900
                             viewModel.insert(waterAmount)
                         }else{
-                            //waterViewModel.updateWaterAmount(waterId,waterAmount)
+                            waterAmount += 900
+                            viewModel.updateWaterAmount(waterAmount,length.value - 1)
                         }
                               },
                     modifier = Modifier.padding(8.dp)

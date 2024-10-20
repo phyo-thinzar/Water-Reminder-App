@@ -10,6 +10,8 @@ import java.time.LocalDate
 @Dao
 interface WaterDao{
 
+
+
     //insert all data
     @Insert
     suspend fun insertAll(vararg waterAmount: WaterData)
@@ -21,4 +23,6 @@ interface WaterDao{
     //update water amount
     @Query("UPDATE water_data SET waterAmount = :newWaterAmount WHERE id = :id")
     suspend fun updateWaterAmount(newWaterAmount : Int,id : Int)
+
+
 }

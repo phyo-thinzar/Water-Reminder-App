@@ -9,35 +9,37 @@ import com.example.waterremindershwe.data.WaterData
 import com.example.waterremindershwe.repository.WaterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.time.ZoneId
 import javax.inject.Inject
 
 @HiltViewModel
 class WaterViewModel @Inject constructor(
     private val repository: WaterRepository) : ViewModel() {
 
+        val lengthCount : Flow<Int> = repository.getAlldata()
+            .map { dataList -> dataList.size }
     @RequiresApi(Build.VERSION_CODES.O)
     fun insert(waterAmount: Int) = viewModelScope.launch {
         val date = LocalDate.now()
-
-        val formatter= SimpleDateFormat("dd.MM.yyyy")
-
 
         Log.d("Insert" , "Insert Success : Before")
         val waterData = WaterData(waterAmount= waterAmount, date = date)
         withContext(Dispatchers.IO){
             repository.insertData(waterData)
-            Log.d("Insert" , "Insert Success : After")
+            Log.d("Insert" , "Insert Success : After date -> ${date}")
         }
     }
 
-   fun updateWaterAmount(waterAmount: Int) = viewModelScope.launch {
+   fun updateWaterAmount(waterAmount: Int, id: Int) = viewModelScope.launch {
         withContext(Dispatchers.IO){
             repository.updateWaterAmount(waterAmount = waterAmount , id = id)
-            Log.d( "Update" , "Update Success")
+            Log.d( "Update" , "Update Success  ${id} ${waterAmount} ")
         }
     }
 
